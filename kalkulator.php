@@ -37,9 +37,8 @@
     } else if ($operator == '/') {
       $hasil =  $angka1 / $angka2;
     }
+    echo "Jumlah = " . $hasil;
   }
-
-  echo "Jumlah = " . $hasil;
 
   ?>
 
