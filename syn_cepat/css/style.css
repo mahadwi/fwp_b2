@@ -1,0 +1,344 @@
+/* ---------------DESKTOP VERSION--------- */
+@media (min-width: 992px) {
+
+  /* NAVBAR */
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid #fff;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+  }
+
+  /* SLIDER */
+  .slider {
+    background-image: url("../assets/img/1.jpg");
+    background-attachment: fixed;
+    background-position: 0 -100px;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    height: 680px;
+    padding-top: 150px;
+    margin-top: -75px;
+    position: relative;
+  }
+
+  .slider::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  }
+
+  .slider .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .carousel {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    color: #EAEAEB;
+  }
+
+  .carousel h1 {
+    font-family: lora;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .carousel p {
+    font-family: montserrat;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .visual {
+    margin-top: -300px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* BOX ITEM */
+  .box-item {
+    margin-top: -250px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .card {
+    border: none;
+    border-radius: 30px !important;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+  }
+
+  .card-title {
+    font-family: lora;
+    font-size: 20px;
+    font-weight: bold;
+    color: #302683;
+  }
+
+  .card-text {
+    font-family: montserrat;
+    font-size: 13px;
+    font-weight: 300;
+    color: #302683;
+  }
+
+  /* ONGKIR & LACAK */
+  .ongkir {
+    border: 2px solid #302683;
+    border-radius: 30px;
+    padding: 70px 0;
+  }
+
+  .form-ongkir .form-control,
+  .form-lacak .form-control {
+    background-color: #FFE178;
+  }
+
+  /* LAYANAN */
+  .layanan {
+    background-color: #302683;
+  }
+
+  .layanan img {
+    margin-left: -100px
+  }
+
+  .layanan-h1,
+  .ask-h1,
+  .powered-h1 {
+    font-family: anton;
+    color: white;
+    padding-top: 110px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  }
+
+  .layanan h5 {
+    font-family: montserrat;
+    color: white;
+    font-weight: 400;
+  }
+
+  /* ASK OURS */
+  .ask {
+    background-color: #FFE178;
+    height: 500px;
+  }
+
+  /* POWERED */
+  .powered {
+    background-image: url("../assets/img/1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 700px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding-top: 50px;
+    height: 250px;
+  }
+
+  footer li {
+    list-style: none;
+  }
+}
+
+/* ---------------LAYANAN.HTML------------------ */
+
+.layanan-item {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.layanan-item h1 {
+  font-family: lora;
+  font-size: 40px;
+  font-weight: bold;
+  color: #302683;
+}
+
+.layanan-item h6 {
+  font-family: montserrat;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #302683;
+  margin-top: 20px;
+}
+
+.layanan-item .row {
+  background-color: #302683;
+  margin-top: 60px;
+  width: 1300px;
+  height: 500px;
+  border-radius: 0px 80px 80px 0px;
+  text-align: center;
+}
+
+.item-yes {
+  background-color: #FFE178;
+  width: 326px;
+  height: 400px;
+  margin-left: 90px;
+  border-radius: 30px;
+  margin-top: 50px;
+  padding: 87px 27px 87px 27px;
+}
+
+.item-yes:hover {
+  transform: scale(1.03);
+  transition: .6s;
+}
+
+.item-yes h2 {
+  font-family: lora;
+  font-size: 30px;
+  font-weight: bold;
+  color: #302683;
+  margin-top: 20px;
+}
+
+.item-yes h2 a {
+  text-decoration: none;
+}
+
+.item-yes h6 {
+  font-family: montserrat;
+  font-size: 13px;
+  font-weight: lighter;
+  color: #302683;
+  margin-top: 40px;
+}
+
+/* RATING */
+
+.rating h2 {
+  text-align: center;
+  margin-top: 70px;
+  font-family: lora;
+  font-size: 40px;
+  font-weight: bold;
+  color: #302683;
+}
+
+.rating hr {
+  border: 2px solid #302683;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.rating .col-6 h6 {
+  font-family: montserrat;
+  font-size: 19px;
+  font-weight: lighter;
+  color: #302683;
+}
+
+.rating .col-6 hr {
+  border: 1px solid #302683;
+  width: auto;
+  margin-top: 20px;
+}
+
+.tombol-rating {
+  background-color: #FFE178;
+  margin-top: 30px;
+  width: 265px;
+  height: 49px;
+  border: none;
+  border-radius: 30px;
+  font-family: lora;
+  font-size: 19px;
+  font-weight: normal;
+  color: #302683;
+}
+
+.tombol-rating:hover {
+  transform: scale(1.03);
+  transition: .6s;
+  background-color: yellowgreen;
+}
+
+.rate-1 {
+  background-color: white;
+  width: 224px;
+  height: 246px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  padding: 35px 29px 35px 29px;
+  text-align: center;
+}
+
+.rate-1 h1 {
+  font-family: lora;
+  font-size: 66px;
+  font-weight: bold;
+  color: #302683;
+}
+
+.rate-1 h3 {
+  font-family: montserrat;
+  font-size: 19px;
+  font-weight: bold;
+  color: #302683;
+}
+
+/* --------------------------YES----------------- */
+
+.yes {
+  background-color: #302683;
+  height: 640px;
+  border-radius: 0px 0px 100px 100px;
+  margin-bottom: 200px;
+}
+
+.judul-yes {
+  padding-top: 90px;
+}
+
+.yes-content {
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 70px;
+  box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.3);
+}
+
+.yes-content h1 {
+  font-family: lora;
+  font-size: 20px;
+  font-weight: bold;
+  color: #302683;
+}
+
+.yes-content .form-control {
+  background-color: #FFE178;
+  margin-bottom: 35px;
+}
+
+.judul-yes h1 {
+  color: white;
+  font-family: lora;
+  font-weight: bold;
+}
