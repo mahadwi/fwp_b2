@@ -6,24 +6,15 @@
     melalui lebih 1.500 titik layanan ekslusif dari penjemputan hingga pengantaran yang tersebar <br>
     di seluruh Indonesia</h6>
   <div class="row justify-content-center">
+  <?php foreach ($dataLayanan as $data) : ?>
     <div class="col-4">
       <div class="item-yes">
         <img src="assets/icon/003-airplane-1.png" alt="yes"> <br>
-        <h2><a href="?page=yes">YES</a></h2>
-        <h6>Yes adalah layanan dengan waktu <br>
-          penyampaian di tujuan keesokan hari <br>
-          (termasuk Minggu dan hari libur Nasional)</h6>
+         <a href="?page=<?php echo strtolower($data['layanan']) ?>"><h2><?php echo $data['layanan']?></h2></a> 
+        <h6><?php echo $data['keterangan'] ?> </h6>
       </div>
     </div>
-    <div class="col-4">
-      <div class="item-yes">
-        <img src="assets/icon/004-motorcycle.png" alt="reg"> <br>
-        <h2><a href="?page=reg">REG</a></h2>
-        <h6>Reguler adalah layanan pengiriman ke <br>
-          seluruh wilayah Indonesia, dengan perkiraan
-          waktu penyampaian kiriman 1-7 hari kerja</h6>
-      </div>
-    </div>
+    <?php endforeach ?>
   </div>
 </section>
 <!-- Akhir ITEM -->

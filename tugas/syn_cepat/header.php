@@ -12,6 +12,13 @@
         <a class="nav-item nav-link mr-3" href="#">mitra</a>
         <a class="nav-item nav-link mr-3" href="#">karir</a>
         <a class="nav-item nav-link mr-3" href="#">hubungi kami</a>
+        <?php
+        if (isset($_SESSION['username'])) : ?>
+          <a class="nav-item nav-link mr-3" href="#"><?= $_SESSION['username'] ?></a>
+          <a class="nav-item nav-link mr-3" href="?page=act-logout">Logout</a>
+        <?php else : ?>
+          <a class="nav-item nav-link mr-3" href="?page=login">Login</a>
+        <?php endif ?>
       </div>
     </div>
   </div>
