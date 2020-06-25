@@ -28,3 +28,16 @@ if (isset($_GET['aksi'])) {
     }
   }
 }
+
+if (isset($_POST['btnEditLayanan'])) {
+  $kdLayanan  = $_POST['kode'];
+  $layanan    = $_POST['layanan'];
+  $harga      = $_POST['harga'];
+  $keterangan = $_POST['keterangan'];
+
+  $updateLayanan = updateLayanan($kdLayanan, $layanan, $harga, $keterangan);
+  if ($updateLayanan) {
+    notif('Berhasil Ubah data layanan', 1);
+    header("Location: ?page=layanan");
+  }
+}

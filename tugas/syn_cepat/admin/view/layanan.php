@@ -26,7 +26,7 @@ unset($_SESSION['notif']) ?>
           <td><?= $layanan['keterangan'] ?></td>
           <td>
             <!-- TOMBOL EDIT -->
-            <a href="?page=users&aksi=edit&id=<?= $user['id_user'] ?>" title="Edit Data <?= $user['username'] ?>"><i class="fa fa-edit text-info"></i></a>
+            <a href="?page=edit-layanan&aksi=edit&id=<?= $layanan['kd_layanan'] ?>" title="Edit Data <?= $layanan['kd_layanan'] ?>"><i class="fa fa-edit text-info"></i></a>
 
             <!-- TOMBOL DELETE -->
             <a href="?page=act-layanan&aksi=delete&id=<?= $layanan['kd_layanan'] ?>" onclick="return confirm('Yakin ingin menghapus data <?= $layanan['kd_layanan'] ?> ?') "><i class="fa fa-trash text-info"></i></a></td>

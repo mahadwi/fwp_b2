@@ -27,3 +27,20 @@ function deleteLayanan($id)
   $deleteLayanan = mysqli_query($konek, $sql);
   return $deleteLayanan;
 }
+
+function updateLayanan($layanan, $harga, $keterangan)
+{
+  global $konek;
+  $sql = "UPDATE layanan SET layanan = '$layanan', harga = '$harga', keterangan = '$keterangan'";
+  $updateLayanan = mysqli_query($konek, $sql);
+  return $updateLayanan;
+}
+
+function dataLayananById($id)
+{
+  global $konek;
+  $sql = "SELECT * FROM layanan WHERE kd_layanan = '$id'";
+  $query = mysqli_query($konek, $sql);
+  $data = mysqli_fetch_assoc($query);
+  return $data;
+}
