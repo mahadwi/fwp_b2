@@ -51,7 +51,7 @@
            </div>
          </div>
        </div>
-       <div class="col-sm col-md-6 col-lg-3 mr-5">
+       <div class="col-sm col-lg-3 col-md-6 mr-5">
          <div class="card text-center" style="width: 18rem;">
            <div class="card-body">
              <img src="assets/icon/ic_public.png" class="mb-3">
@@ -135,7 +135,7 @@
  <!-- AKHIR LAYANAN -->
 
  <!-- ASK -->
- <section class="ask text-center pt-5">
+ <section class="ask text-center">
    <div class="row no-gutters justify-content-center">
      <div class="col-3">
        <h1 class="display-4 ask-h1">ASK OURS!</h1>

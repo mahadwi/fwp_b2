@@ -1,12 +1,12 @@
 <?php
 if (isset($_POST['btnAddUsers'])) {
 
-  $username = $_POST['username']; //nama pada form input
-  $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $role = $_POST['role'];
-  $status = isset($_POST['status']) ? $_POST['status'] == 'on' ? 'Y' : 'N' : 'N';
-  $namaDepan = $_POST['namaDepan'];
+  $username     = $_POST['username']; //nama pada form input
+  $email        = $_POST['email'];
+  $password     = md5($_POST['password']);
+  $role         = $_POST['role'];
+  $status       = isset($_POST['status']) ? ($_POST['status'] == 'on' ? 'Y' : 'N') : 'N';
+  $namaDepan    = $_POST['namaDepan'];
   $namaBelakang = $_POST['namaBelakang'];
 
   $sql = "INSERT INTO `users`(`username`, `email`, `password`, `created_at`, `aktif`, `id_role`) VALUES ('$username', '$email', '$password' , CURRENT_TIMESTAMP(), '$status', '$role')";
@@ -27,7 +27,7 @@ if (isset($_POST['btnEditUser'])) {
   $email        = $_POST['email'];
   $password     = md5($_POST['password']);
   $role         = $_POST['role'];
-  $status       = isset($_POST['status']) ? $_POST['status'] == 'on' ? 'Y' : 'N' : 'N';
+  $status       = isset($_POST['status']) ? ($_POST['status'] == 'on' ? 'Y' : 'N') : 'N';
   $namaDepan    = $_POST['namaDepan'];
   $namaBelakang = $_POST['namaBelakang'];
 

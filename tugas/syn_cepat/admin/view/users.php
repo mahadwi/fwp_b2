@@ -21,7 +21,7 @@ unset($_SESSION['notif']) ?>
         <th>Status</th>
         <th>Last Login</th>
         <th>Role</th>
-        <th>Aktif</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -32,7 +32,7 @@ unset($_SESSION['notif']) ?>
           <td><?= $user['username'] ?></td>
           <td><?= $user['nama_depan'] . '' . $user['nama_belakang'] ?></td>
           <td><?= $user['email'] ?> </td>
-          <td><?= $user['aktif'] == 'Y' ? 'Aktif' : 'Tidak Aktif' ?></td>
+          <td><?= $user['aktif'] == 'Y' ? 'Aktif' : 'Tidak aktif' ?></td>
           <td><?= $user['login_at'] ?></td>
           <td><?= $user['role'] ?></td>
           <td>
@@ -171,8 +171,8 @@ if (isset($_GET['aksi'])) {
             </div>
           </div>
           <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="status">
-            <label class="form-check-label" for="status" name="status">Aktif</label>
+            <input type="checkbox" class="form-check-input" id="status" name="status">
+            <label class="form-check-label" for="status">Aktif</label>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
