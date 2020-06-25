@@ -18,11 +18,23 @@ switch ($page) {
   case 'users':
     include "view/users.php";
     break;
+  case 'layanan':
+    include "view/layanan.php";
+    break;
+  case 'transaksi':
+    include "view/transaksi.php";
+    break;
+  case 'add-transaksi':
+    include "view/add/add-transaksi.php";
+    break;
   case 'act-users':
     include "modul/act-users.php";
     break;
   case 'act-profil':
     include "modul/act-profile.php";
+    break;
+  case 'act-transaksi':
+    include "modul/act-transaksi.php";
     break;
 
   case 'act-logout':

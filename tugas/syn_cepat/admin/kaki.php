@@ -12,12 +12,23 @@
   $(document).ready(function() {
     $('#myTable').DataTable();
   });
+
+  function ambilHarga() {
+    var idLayanan = $("#pilihLayanan").val();
+    $.ajax({
+      type: 'GET',
+      url: 'view/add/ambil-harga.php',
+      data: 'id=' + idLayanan,
+      success: function(html) {
+        $("#hargaTotal").val(html)
+        $("#text").attr('disabled', 'true')
+      }
+    })
+  }
 </script>
 
 <script>
   $(document).ready(function() {
-
-
     var readURL = function(input) {
       if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -29,8 +40,6 @@
         reader.readAsDataURL(input.files[0]);
       }
     }
-
-
     $(".file-upload").on('change', function() {
       readURL(this);
     });
