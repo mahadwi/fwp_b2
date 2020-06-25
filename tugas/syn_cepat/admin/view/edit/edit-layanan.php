@@ -40,7 +40,7 @@ $data = dataLayananById($_GET['id']);
     </div>
   </div>
   <div class=" modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <a href="?page=layanan"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></a>
     <button type="submit" name="btnEditLayanan" class="btn btn-primary">Save changes</button>
   </div>
 </form>

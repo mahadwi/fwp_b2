@@ -36,7 +36,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary">Close</button>
+    <a href="?page=layanan"><button type="button" class="btn btn-secondary">Close</button></a>
     <button type="submit" name="btn-AddLayanan" class="btn btn-primary">Save changes</button>
   </div>
 </form>
