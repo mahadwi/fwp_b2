@@ -1,3 +1,6 @@
+<?php
+$data = dataLayananById($_GET['id']);
+?>
 <form method="post" action="?page=act-layanan">
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Tambah Users</h5>

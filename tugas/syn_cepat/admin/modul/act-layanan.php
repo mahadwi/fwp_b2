@@ -36,8 +36,9 @@ if (isset($_POST['btnEditLayanan'])) {
   $keterangan = $_POST['keterangan'];
 
   $updateLayanan = updateLayanan($kdLayanan, $layanan, $harga, $keterangan);
+
   if ($updateLayanan) {
     notif('Berhasil Ubah data layanan', 1);
-    header("Location: ?page=layanan");
+    header('Location: ?page=layanan');
   }
 }

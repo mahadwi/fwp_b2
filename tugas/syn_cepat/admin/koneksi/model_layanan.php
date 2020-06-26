@@ -28,10 +28,10 @@ function deleteLayanan($id)
   return $deleteLayanan;
 }
 
-function updateLayanan($layanan, $harga, $keterangan)
+function updateLayanan($kdLayanan, $layanan, $harga, $keterangan)
 {
   global $konek;
-  $sql = "UPDATE layanan SET layanan = '$layanan', harga = '$harga', keterangan = '$keterangan'";
+  $sql = "UPDATE layanan SET layanan = '$layanan', harga = '$harga', keterangan = '$keterangan' WHERE kd_layanan = '$kdLayanan'";
   $updateLayanan = mysqli_query($konek, $sql);
   return $updateLayanan;
 }

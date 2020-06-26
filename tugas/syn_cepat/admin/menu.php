@@ -45,6 +45,12 @@
               Data Layanan
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link <?= isset($_GET['page']) ? ($_GET['page'] == 'transaksi' ? 'active' : '') : '' ?>" href="?page=transaksi">
+              <i class="fa fa-user mr-2"></i>
+              Data Transaksi
+            </a>
+          </li>
         </ul>
       <?php elseif ($_SESSION['idRole'] == 2) : ?>
         <!-- MENU KURIR -->

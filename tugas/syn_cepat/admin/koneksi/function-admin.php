@@ -2,6 +2,7 @@
 require '../koneksi/koneksi.php';
 require 'model_user.php';
 require 'model_layanan.php';
+require 'model_transaksi.php';
 
 function notif($pesan, $jenis)
 {
