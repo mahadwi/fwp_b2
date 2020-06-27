@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2020 at 02:28 AM
+-- Generation Time: Jun 27, 2020 at 02:52 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_ekspedisi2`
 --
+
+DELIMITER $$
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `cekKota` (`vidkota` INT(11)) RETURNS VARCHAR(100) CHARSET utf8mb4 NO SQL
+    DETERMINISTIC
+BEGIN
+declare nmkota varchar(100);
+select kota.kota into nmkota from kota where id_kota=vidkota;
+RETURN nmkota;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -56,6 +70,14 @@ CREATE TABLE `kota` (
   `kota` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `kota`
+--
+
+INSERT INTO `kota` (`id_kota`, `kota`) VALUES
+(1, 'Palembang'),
+(2, 'Jakarta');
+
 -- --------------------------------------------------------
 
 --
@@ -74,8 +96,8 @@ CREATE TABLE `layanan` (
 --
 
 INSERT INTO `layanan` (`kd_layanan`, `layanan`, `harga`, `keterangan`) VALUES
-('KL-REG', 'REG', NULL, 'REG'),
-('KL-YES', 'YES', NULL, 'YES');
+('KL-REG', 'REG', 40000, 'REG'),
+('KL-YES', 'YES', 50000, 'YES');
 
 -- --------------------------------------------------------
 
@@ -87,8 +109,15 @@ CREATE TABLE `penerima` (
   `kd_penerima` int(5) NOT NULL,
   `nama_penerima` varchar(200) DEFAULT NULL,
   `kontak` int(11) DEFAULT NULL,
-  `alamat` int(11) DEFAULT NULL
+  `alamat` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penerima`
+--
+
+INSERT INTO `penerima` (`kd_penerima`, `nama_penerima`, `kontak`, `alamat`) VALUES
+(123, 'Maha Dwi', 812, 'bumi putra');
 
 -- --------------------------------------------------------
 
@@ -100,8 +129,15 @@ CREATE TABLE `pengirim` (
   `kd_pengirim` int(5) NOT NULL,
   `nama_pengirim` varchar(200) DEFAULT NULL,
   `kontak` int(11) DEFAULT NULL,
-  `alamat` int(11) DEFAULT NULL
+  `alamat` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengirim`
+--
+
+INSERT INTO `pengirim` (`kd_pengirim`, `nama_pengirim`, `kontak`, `alamat`) VALUES
+(123, 'dwi', 812, 'palembang');
 
 -- --------------------------------------------------------
 
@@ -120,6 +156,13 @@ CREATE TABLE `transaksi` (
   `tujuan` int(5) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`kd_transaksi`, `kd_pengirim`, `kd_penerima`, `kd_barang`, `jumlah`, `harga`, `asal`, `tujuan`, `id_user`) VALUES
+(123, 123, 123, 'BR23', 2, 50000, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -144,9 +187,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `email`, `password`, `created_at`, `updated_at`, `login_at`, `aktif`, `id_role`) VALUES
-(1, 'admin', 'admin@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2019-07-17 10:51:09', '2020-06-13 02:37:46', '2020-05-09 11:58:26', 'Y', 1),
-(59, 'mahadwiputra', 'mahadwiputra008@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-05-17 05:24:18', '2020-06-06 04:11:20', NULL, 'Y', 2),
-(60, 'mahadwi', 'mahadwiputra@ymail.com', '6a58fff5a39a9a4dce4ac3c600d94ba2', '2020-06-12 11:52:12', '2020-06-12 11:52:38', NULL, 'Y', 4);
+(1, 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', '2019-07-17 10:51:09', '2020-06-13 02:37:46', '2020-05-09 11:58:26', 'Y', 1),
+(73, 'mahadwi', 'mahadwiputra008@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', '2020-06-24 14:28:34', '2020-06-25 03:18:42', NULL, 'N', 4);
 
 -- --------------------------------------------------------
 
@@ -171,10 +213,15 @@ CREATE TABLE `users_profile` (
 --
 
 INSERT INTO `users_profile` (`id_profil`, `nama_depan`, `nama_belakang`, `tgl_lahir`, `jk`, `alamat`, `kontak`, `foto`, `id_user`) VALUES
-(1, 'Admin', 'maha', '2020-06-03', 'Pria', 'palembang', '081271', '96-10.png', 1),
+(1, 'Maha Dwi', 'Putra', '1992-08-08', 'Pria', 'palembang', '081271650453', '96-10.png', 1),
 (53, 'mahadwi', 'putra', NULL, NULL, NULL, NULL, 'default.png', 59),
 (56, 'dwi', 'putra', NULL, NULL, NULL, NULL, 'default.png', 60),
-(57, 'dwi', 'putra', NULL, NULL, NULL, NULL, 'default.png', 61);
+(57, 'dwi', 'putra', NULL, NULL, NULL, NULL, 'default.png', 61),
+(58, '', '', NULL, NULL, NULL, NULL, 'default.png', 63),
+(59, 'dwi', 'putra', NULL, NULL, NULL, NULL, 'default.png', 68),
+(60, 'Maha Dwi', 'Putra', NULL, NULL, NULL, NULL, 'default.png', 71),
+(61, 'Maha Dwi', 'Putra', NULL, NULL, NULL, NULL, 'default.png', 73),
+(62, '', '', NULL, NULL, NULL, NULL, 'default.png', 74);
 
 -- --------------------------------------------------------
 
@@ -273,37 +320,37 @@ ALTER TABLE `users_role`
 -- AUTO_INCREMENT for table `kota`
 --
 ALTER TABLE `kota`
-  MODIFY `id_kota` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kota` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `penerima`
 --
 ALTER TABLE `penerima`
-  MODIFY `kd_penerima` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_penerima` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `pengirim`
 --
 ALTER TABLE `pengirim`
-  MODIFY `kd_pengirim` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_pengirim` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `kd_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `users_profile`
 --
 ALTER TABLE `users_profile`
-  MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables
@@ -316,7 +363,9 @@ ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users_profile` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`asal`) REFERENCES `kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`kd_penerima`) REFERENCES `penerima` (`kd_penerima`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`kd_pengirim`) REFERENCES `pengirim` (`kd_pengirim`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`kd_pengirim`) REFERENCES `pengirim` (`kd_pengirim`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`tujuan`) REFERENCES `kota` (`id_kota`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_ibfk_6` FOREIGN KEY (`kd_barang`) REFERENCES `barang` (`kd_barang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`

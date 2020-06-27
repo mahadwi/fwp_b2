@@ -55,7 +55,7 @@
       <label for="JenisBarang">Jenis Barang</label>
       <select name="jenisBarang" class="form-control">
         <?php foreach (getJenisBarang() as $jenis) : ?>
-          <option value="<?= $jenis['kd_barang'] ?>"><?php echo $jenis['nama_barang'] ?></option>
+          <option value="<?= $jenis['kd_barang'] ?>"><?php echo $jenis['jenis_barang'] ?></option>
         <?php endforeach ?>
       </select>
     </div>
@@ -113,7 +113,7 @@
 
   <div class="row justify-content-end">
     <div class="col-md-6">
-      <button type="submit" name="btn-AddTransaksi" class="btn btn-info" style="width: 100%;">PROSES</button>
+      <button type="submit" name="btnAddTransaksi" class="btn btn-info" style="width: 100%;">PROSES</button>
     </div>
   </div>
 </form>

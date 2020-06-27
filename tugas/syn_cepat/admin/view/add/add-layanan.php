@@ -1,9 +1,6 @@
-<?php
-$data = dataLayananById($_GET['id']);
-?>
 <form method="post" action="?page=act-layanan">
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Tambah Users</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Tambah Layanan</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

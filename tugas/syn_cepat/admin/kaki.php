@@ -12,6 +12,19 @@
   $(document).ready(function() {
     $('#myTable').DataTable();
   });
+
+  function ambilHarga() {
+    var idLayanan = $("#pilihLayanan").val();
+    $.ajax({
+      type: 'GET',
+      url: 'view/add/ambil-harga.php',
+      data: 'id=' + idLayanan,
+      success: function(html) {
+        $("#hargaTotal").val(html)
+        $("#text").attr('disabled', 'true')
+      }
+    });
+  }
 </script>
 
 <script>
