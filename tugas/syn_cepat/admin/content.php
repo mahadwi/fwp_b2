@@ -33,6 +33,12 @@ switch ($page) {
   case 'add-transaksi':
     include "view/add/add-transaksi.php";
     break;
+  case 'edit-transaksi':
+    include "view/edit/edit-transaksi.php";
+    break;
+  case 'act-transaksi':
+    include "modul/act-transaksi.php";
+    break;
   case 'act-users':
     include "modul/act-users.php";
     break;

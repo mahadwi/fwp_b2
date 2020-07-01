@@ -29,22 +29,29 @@ unset($_SESSION['notif']) ?>
     </thead>
     <tbody>
       <?php $no = 1 ?>
-      <?php foreach (dataTransaksiPengirim() as $pengirim) : ?>
+      <?php foreach (dataTransaksi() as $pengirim) : ?>
         <tr>
           <td><?= $no++ ?></td>
           <td><?= $pengirim['kd_transaksi'] ?></td>
           <td><?= $pengirim['nama_pengirim'] ?></td>
-          <td><?= $pengirim['alamat'] ?></td>
-          <td><?= $pengirim['kontak'] ?></td>
+          <td><?= $pengirim['alamatPengirim'] ?></td>
+          <td><?= $pengirim['kontakPengirim'] ?></td>
           <td><?= $pengirim['nama_penerima'] ?></td>
-          <td><?= $pengirim['alamat'] ?></td>
-          <td><?= $pengirim['kontak'] ?></td>
+          <td><?= $pengirim['alamatPenerima'] ?></td>
+          <td><?= $pengirim['kontakPenerima'] ?></td>
+          <td><?= $pengirim['nama_barang'] ?></td>
+          <td><?= $pengirim['jenis_barang'] ?></td>
+          <td><?= $pengirim['berat_barang'] ?></td>
+          <td><?= $pengirim['kotaAsal'] ?></td>
+          <td><?= $pengirim['kotaTujuan'] ?></td>
+          <td><?= $pengirim['layanan'] ?></td>
+          <td><?= $pengirim['harga'] ?></td>
           <td>
             <!-- TOMBOL EDIT -->
-            <a href="?page=edit-layanan&aksi=edit&id=<?= $layanan['kd_layanan'] ?>" title="Edit Data <?= $layanan['kd_layanan'] ?>"><i class="fa fa-edit text-info"></i></a>
+            <a href="?page=edit-transaksi&aksi=edit&id=<?= $pengirim['kd_transaksi'] ?>" title="Edit Data <?= $pengirim['kd_transaksi'] ?>"><i class="fa fa-edit text-info"></i></a>
 
             <!-- TOMBOL DELETE -->
-            <a href="?page=act-layanan&aksi=delete&id=<?= $layanan['kd_layanan'] ?>" onclick="return confirm('Yakin ingin menghapus data <?= $layanan['kd_layanan'] ?> ?') "><i class="fa fa-trash text-info"></i></a></td>
+            <a href="?page=act-transaksi&aksi=delete&id=<?= $pengirim['kd_transaksi'] ?>" onclick="return confirm('Yakin ingin menghapus data <?= $pengirim['kd_transaksi'] ?> ?') "><i class="fa fa-trash text-info"></i></a></td>
         </tr>
       <?php endforeach ?>
     </tbody>
